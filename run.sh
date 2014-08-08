@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 WAR_BASENAME=ROOT
 
 WAR_FILE=/docker/deploy/$WAR_BASENAME.war

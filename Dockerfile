@@ -1,10 +1,16 @@
 FROM damm/java8
-
-MAINTAINER n.toublanc@gmail.com
+MAINTAINER Nicolas Toublanc "n.toublanc@gmail.com"
 
 EXPOSE 8080
 
 ENV TOMCAT_VERSION 8.0.5
+
+RUN apt-get update && apt-get clean
+RUN apt-get install -q -y openssh-server
+RUN apt-get clean
+
+RUN mkdir /var/run/sshd
+RUN echo 'root:tomcat' |chpasswd
 
 RUN wget --quiet --no-cookies http://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/catalina.tar.gz
 
@@ -25,7 +31,7 @@ RUN chmod 755 /docker/bin/*.sh
 ADD tomcat-control.sh /etc/init.d/tomcat
 RUN chmod 755 /etc/init.d/tomcat
 
-# Add VOLUMEs to allow deployment
+# volumes
 VOLUME  ["/docker/deploy", "/opt/tomcat/logs"]
 
 # Start Tomcat

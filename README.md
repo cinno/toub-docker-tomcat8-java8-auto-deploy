@@ -29,7 +29,7 @@ Création et démarrage du container
 
 Check the logs :
 
-	docker logs my-app
+	docker logs -f my-app
 
 or:
 
