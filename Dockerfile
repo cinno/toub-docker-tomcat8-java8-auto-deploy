@@ -27,7 +27,9 @@ ENV PATH $PATH:$CATALINA_HOME/bin
 
 # Add deployment scripts
 ADD run.sh /docker/bin/run.sh
+ADD run.sh /docker/bin/redeploy.sh
 RUN chmod 755 /docker/bin/*.sh
+
 ADD tomcat-control.sh /etc/init.d/tomcat
 RUN chmod 755 /etc/init.d/tomcat
 

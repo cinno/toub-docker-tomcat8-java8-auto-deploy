@@ -26,21 +26,5 @@ else
     echo "No war to deploy"
 fi
 
-KEYGEN=/usr/bin/ssh-keygen
-KEYFILE=/root/.ssh/id_rsa
-
-if [ ! -f $KEYFILE ]; then
-	echo "Generating RSA keys"
-	$KEYGEN -q -t rsa -N "" -f $KEYFILE
-fi
-
-echo "RSA public key"
-cat $KEYFILE.pub
-
-echo "Starting SSH server"
-/etc/init.d/ssh start 
-
-echo "Starting Tomcat"
-service tomcat start
-
-tail -50f /opt/tomcat/logs/catalina.out
+echo "Restarting Tomcat"
+service tomcat restart
