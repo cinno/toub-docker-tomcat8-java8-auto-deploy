@@ -29,5 +29,4 @@ RUN chmod 755 /etc/init.d/tomcat
 VOLUME  ["/docker/deploy"]
 
 # Start Tomcat
-#CMD ["/opt/tomcat/bin/catalina.sh", "run"]
-CMD ["$CATALINA_HOME/bin/run.sh"]
+CMD ["/docker/bin/run.sh"]
