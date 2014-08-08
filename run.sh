@@ -26,3 +26,5 @@ fi
 
 echo "=> Starting Tomcat"
 service tomcat start
+
+tail -50f /opt/tomcat/logs/catalina.out

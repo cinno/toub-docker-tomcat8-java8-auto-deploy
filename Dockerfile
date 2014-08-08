@@ -26,7 +26,7 @@ ADD tomcat-control.sh /etc/init.d/tomcat
 RUN chmod 755 /etc/init.d/tomcat
 
 # Add VOLUMEs to allow deployment
-VOLUME  ["/docker/deploy"]
+VOLUME  ["/docker/deploy", "/opt/tomcat/logs"]
 
 # Start Tomcat
 CMD ["/docker/bin/run.sh"]
