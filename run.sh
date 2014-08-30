@@ -40,6 +40,10 @@ cat $KEYFILE.pub
 echo "Starting SSH server"
 /etc/init.d/ssh start 
 
+export MYSQL_ADDR=$MYSQL_PORT_3306_TCP_ADDR
+
+export MYSQL_PORT=$MYSQL_PORT_3306_TCP_PORT
+
 echo "Starting Tomcat"
 service tomcat start
 
